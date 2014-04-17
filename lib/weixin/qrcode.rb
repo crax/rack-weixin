@@ -4,7 +4,7 @@ require 'nestful'
 
 module Weixin
 
-  class QRcode < Api
+  class QRCode < Api
 
     def gw_path(method)
       "/qrcode/#{method}?access_token=#{access_token}"

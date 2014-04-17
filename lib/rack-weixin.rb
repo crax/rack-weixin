@@ -7,6 +7,7 @@ require 'weixin/user'
 require 'weixin/message_custom'
 require 'weixin/client'
 require 'weixin/model'
+require 'weixin/qrcode'
 
 module Weixin
   
