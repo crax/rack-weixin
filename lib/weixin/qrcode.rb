@@ -21,7 +21,7 @@ module Weixin
       response = Nestful::Connection.new(@endpoint).post("/cgi-bin#{gw_path('create')}", MultiJson.dump(ticket_req)) rescue nil
       unless response.nil?
         ret = MultiJson.load(response.body)
-        return false, ret['errcode'] if ret['errcode'] != 0
+        return false, ret['errcode'] if ret.include?('errcode')
 
         ticket = ret['ticket']
         return true, "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=#{ticket}"
