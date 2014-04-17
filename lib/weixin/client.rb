@@ -61,6 +61,10 @@ module Weixin
 
     def message_custom
       MessageCustom.new(@api, @key, get_access_token, @expired_at, @endpoint)
-    end      
+    end
+
+    def qrcode
+      QRCode.new(@api, @key, get_access_token, @expired_at, @endpoint)
+    end
   end
 end

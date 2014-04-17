@@ -12,7 +12,11 @@ module Weixin
 
     def send(message)
       response = Nestful::Connection.new(endpoint).post("/cgi-bin#{gw_path('send')}", MultiJson.dump(message)) rescue nil
-      check_response(response)
+      unless response.nil?
+        errcode = MultiJson.load(response.body)['errcode']
+        return true, 0 if errcode == 0
+      end
+      return false, errcode
     end
 
   end
