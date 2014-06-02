@@ -25,6 +25,7 @@ module Weixin
     end    
 
     def expired?
+      @expired_at ||= Time.now
    	  Time.now >= @expired_at
     end
 
