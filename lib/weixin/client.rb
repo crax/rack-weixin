@@ -41,6 +41,8 @@ module Weixin
         unless auth.has_key?('errcode')
           access_token = auth['access_token']
           expired_at   = Time.now + auth['expires_in'].to_i
+        else
+          puts auth
         end
 
       end
